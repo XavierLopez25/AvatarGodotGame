@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnb4xl4pajy0"
-path="res://.godot/imported/W401-8.png-0200897ad01905b73b8e70237868815c.ctex"
+uid="uid://dddwfh8nbestl"
+path="res://.godot/imported/agua.png-39dca930f2bcd6b567420f88875318b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Air/WindAttack/W401-8.png"
-dest_files=["res://.godot/imported/W401-8.png-0200897ad01905b73b8e70237868815c.ctex"]
+source_file="res://assets/sprites/UI/agua.png"
+dest_files=["res://.godot/imported/agua.png-39dca930f2bcd6b567420f88875318b5.ctex"]
 
 [params]
 
