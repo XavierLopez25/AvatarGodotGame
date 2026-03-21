@@ -35,6 +35,7 @@ func spawn_ice_ball():
 	get_tree().current_scene.add_child(ice)
 	ice.global_position = player.get_node("AttackSpawn").global_position
 	ice.direction = -1 if is_flipped else 1
+	ice.inherited_velocity = player.velocity.x
 
 	if ice.has_node("AnimatedSprite2D"):
 		ice.get_node("AnimatedSprite2D").flip_h = is_flipped

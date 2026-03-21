@@ -47,6 +47,7 @@ func spawn_projectile(scene: PackedScene):
 	
 	var is_flipped = player.get_node("AnimatedSprite2D").flip_h
 	proj.direction = -1 if is_flipped else 1
+	proj.inherited_velocity = player.velocity.x
 	
 	get_tree().current_scene.add_child(proj)
 	proj.global_position = player.get_node("AttackSpawn").global_position

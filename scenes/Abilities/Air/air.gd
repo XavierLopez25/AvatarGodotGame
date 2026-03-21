@@ -19,6 +19,7 @@ func spawn_wind():
 	var is_flipped = player.get_node("AnimatedSprite2D").flip_h
 	
 	wind.direction = -1 if is_flipped else 1
+	wind.inherited_velocity = player.velocity.x
 	
 	get_tree().current_scene.add_child(wind)
 	
