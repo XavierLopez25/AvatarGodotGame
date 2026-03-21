@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cwq5w8cyrf0ux"]
+
+[ext_resource type="Texture2D" uid="uid://bpot6c0phv2bo" path="res://assets/sprites/Earth/Wall/wall1.png" id="1_2ugxk"]
+[ext_resource type="Texture2D" uid="uid://c53banl3hlv3s" path="res://assets/sprites/Earth/Wall/wall2.png" id="2_d1qxv"]
+[ext_resource type="Texture2D" uid="uid://c6k6x086vot67" path="res://assets/sprites/Earth/Wall/wall3.png" id="3_3nxeo"]
+[ext_resource type="Texture2D" uid="uid://b4mknia5b1fmj" path="res://assets/sprites/Earth/Wall/image_2026-03-20_233236328-removebg-preview.png" id="4_83ptn"]
+[ext_resource type="Script" uid="uid://yipdamtowxsx" path="res://scenes/Abilities/Earth/Wall.gd" id="5_4bbtc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwgm7"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_2ugxk")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_d1qxv")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_3nxeo")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_83ptn")
+}],
+"loop": false,
+"name": &"spawn_wall",
+"speed": 5.0
+}]
+
+[node name="Wall" type="Node2D" unique_id=1545508644]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828578281]
+position = Vector2(3.999999, -114.000015)
+scale = Vector2(0.28938904, 0.40000007)
+sprite_frames = SubResource("SpriteFrames_uwgm7")
+animation = &"spawn_wall"
+frame_progress = 0.626726
+centered = false
+script = ExtResource("5_4bbtc")

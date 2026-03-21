@@ -75,8 +75,8 @@ func update_element_reference() -> void:
 			current_element_node = $ElementManager/Air
 		#ElementType.WATER:
 		#	current_element_node = $ElementManager/Water
-		#ElementType.EARTH:
-		#	current_element_node = $ElementManager/Earth
+		ElementType.EARTH:
+			current_element_node = $ElementManager/Earth
 		
 	
 	if current_element_node:
