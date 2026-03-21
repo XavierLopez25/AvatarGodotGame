@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dijjb1soisc2h"]
+[gd_scene load_steps=10 format=3 uid="uid://dijjb1soisc2h"]
 
 [ext_resource type="Texture2D" uid="uid://v4y45w464ixu" path="res://assets/sprites/water/heal/WaterWave_Lite.png" id="1_ruq62"]
 [ext_resource type="Script" uid="uid://gjx1wq4e3jp2" path="res://scenes/Abilities/water/heal_effect.gd" id="2_0h55s"]
@@ -48,17 +48,18 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vqhtp")
 }],
-"loop": true,
+"loop": false,
 "name": &"heal",
 "speed": 8.0
 }]
 
-[node name="HealthEffect" type="Node2D" unique_id=1787009320]
+[node name="HealthEffect" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1015633342]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_rlola")
 animation = &"heal"
-frame_progress = 0.80431515
+frame_progress = 0.804315
 script = ExtResource("2_0h55s")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animated_sprite_2d_animation_finished"]

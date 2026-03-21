@@ -1,10 +1,8 @@
-extends Node2D
+extends AnimatedSprite2D
 
-func _ready():
-	print("Hijos: ", get_children())
-	var anim = get_child(0)
-	if anim:
-		anim.play("Heal")
+func _ready() -> void:
+	# The animation in the scene is named "heal" (lowercase).
+	play("heal")
 
-func _on_animated_sprite_2d_animation_finished():
+func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()

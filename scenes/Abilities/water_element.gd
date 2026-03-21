@@ -19,7 +19,8 @@ func attack_w():
 	if heal_effect_scene:
 		var effect = heal_effect_scene.instantiate()
 		get_tree().current_scene.add_child(effect)
-		effect.global_position = player.global_position + Vector2(0, 20)
+		# Place the heal effect centered on the player (not below).
+		effect.global_position = player.global_position
 		
 	timer_w.start(5.0) # un cooldown 
 	
