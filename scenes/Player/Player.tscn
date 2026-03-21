@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dl8u2x12hhhmy"]
+[gd_scene load_steps=33 format=3 uid="uid://dl8u2x12hhhmy"]
 
 [ext_resource type="Script" uid="uid://4biytkgxx0dn" path="res://scenes/player.gd" id="1_5tklm"]
 [ext_resource type="Texture2D" uid="uid://cyxwu2ape02fv" path="res://assets/sprites/Air/Jump/AirJump_1.png" id="2_g055u"]
@@ -144,48 +144,48 @@ animations = [{
 radius = 13.0
 height = 34.0
 
-[node name="Player" type="Node2D" unique_id=2011443597]
+[node name="Player" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=602614742]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-4, -67)
 script = ExtResource("1_5tklm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=2117192307]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_pcdsq")
 animation = &"attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=973157133]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -17)
 shape = SubResource("CapsuleShape2D_63i3e")
 
-[node name="AttackSpawn" type="Marker2D" parent="Player" unique_id=1306039838]
+[node name="AttackSpawn" type="Marker2D" parent="Player"]
 position = Vector2(26, -32)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=100440943]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.89, 1.89)
 
-[node name="ElementManager" type="Node2D" parent="Player" unique_id=1514662359]
+[node name="ElementManager" type="Node2D" parent="Player"]
 
-[node name="Fire" parent="Player/ElementManager" unique_id=2106225281 instance=ExtResource("24_g055u")]
+[node name="Fire" parent="Player/ElementManager" instance=ExtResource("24_g055u")]
 
-[node name="Air" parent="Player/ElementManager" unique_id=1738675723 instance=ExtResource("26_gyvus")]
+[node name="Air" parent="Player/ElementManager" instance=ExtResource("26_gyvus")]
 
-[node name="Ice" parent="Player/ElementManager" unique_id=504578552 instance=ExtResource("26_xl0g2")]
+[node name="Ice" parent="Player/ElementManager" instance=ExtResource("26_xl0g2")]
 heal_effect_scene = ExtResource("27_xl0g2")
 
-[node name="Earth" type="Node2D" parent="Player/ElementManager" unique_id=1513655138]
+[node name="Earth" type="Node2D" parent="Player/ElementManager"]
 script = ExtResource("28_earth")
 earthquake_scene = ExtResource("29_eq")
 wall_scene = ExtResource("30_wall")
 
-[node name="TimerQ" type="Timer" parent="Player/ElementManager/Earth" unique_id=1765409813]
+[node name="TimerQ" type="Timer" parent="Player/ElementManager/Earth"]
 one_shot = true
 
-[node name="TimerW" type="Timer" parent="Player/ElementManager/Earth" unique_id=1765409814]
+[node name="TimerW" type="Timer" parent="Player/ElementManager/Earth"]
 one_shot = true
 
-[node name="TimerX" type="Timer" parent="Player/ElementManager/Earth" unique_id=1765409815]
+[node name="TimerX" type="Timer" parent="Player/ElementManager/Earth"]
 one_shot = true
 
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]

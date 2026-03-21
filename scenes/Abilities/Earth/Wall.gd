@@ -1,19 +1,23 @@
-extends AnimatedSprite2D 
+extends RigidBody2D
 
-@export var direction: int = 1 # Se recibe del player
+@export var direction: int = 1
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
-	position.y += 150
+	lock_rotation = true
+	freeze = true
 	
 	scale.x = direction
+	position.y += 0
 	
-	frame_changed.connect(_on_frame_changed)
-	
-	play("spawn_wall")
+	sprite.frame_changed.connect(_on_frame_changed)
+	sprite.play("spawn_wall")
 
 func _on_frame_changed() -> void:
-	if frame > 0 and frame <= 3:
-		position.y -= 5
+	
+	if sprite.frame == sprite.sprite_frames.get_frame_count("spawn_wall") - 1:
+		freeze = false
 
-# Si quieres que el muro se quede ahí, asegúrate de que el LOOP 
-# de la animación esté APAGADO en el panel de SpriteFrames.
+# Método para destruir desde el Player
+func destroy() -> void:
+	queue_free()

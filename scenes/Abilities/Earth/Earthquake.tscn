@@ -53,7 +53,6 @@ script = ExtResource("9_u8gtj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(101, 12)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_u8gtj")
 debug_color = Color(0.984013, 0, 0.346851, 0.545098)
 
