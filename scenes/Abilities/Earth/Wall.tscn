@@ -26,13 +26,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ugxk"]
+size = Vector2(47.000008, 24.999998)
+
 [node name="Wall" type="Node2D" unique_id=1545508644]
+position = Vector2(0, 19)
+scale = Vector2(0.2, 0.2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828578281]
 position = Vector2(3.999999, -114.000015)
 scale = Vector2(0.28938904, 0.40000007)
 sprite_frames = SubResource("SpriteFrames_uwgm7")
 animation = &"spawn_wall"
-frame_progress = 0.626726
+frame = 3
+frame_progress = 1.0
 centered = false
 script = ExtResource("5_4bbtc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=397453994]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=692077370]
+position = Vector2(26.499996, 52.499992)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_2ugxk")

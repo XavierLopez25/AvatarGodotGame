@@ -16,16 +16,16 @@ size = Vector2(201, 28)
 [sub_resource type="SpriteFrames" id="SpriteFrames_etg6d"]
 animations = [{
 "frames": [{
-"duration": 0.4,
+"duration": 0.3,
 "texture": ExtResource("1_nimjp")
 }, {
-"duration": 0.4,
+"duration": 0.3,
 "texture": ExtResource("2_u8gtj")
 }, {
-"duration": 0.4,
+"duration": 0.3,
 "texture": ExtResource("3_4xuwl")
 }, {
-"duration": 0.4,
+"duration": 0.3,
 "texture": ExtResource("4_elplw")
 }, {
 "duration": 1.5,
@@ -42,6 +42,11 @@ animations = [{
 }],
 "loop": false,
 "name": &"earthquake_spawn",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -62,4 +67,5 @@ position = Vector2(-7, -32)
 scale = Vector2(0.61890244, 0.6008942)
 sprite_frames = SubResource("SpriteFrames_etg6d")
 animation = &"earthquake_spawn"
+frame = 4
 centered = false

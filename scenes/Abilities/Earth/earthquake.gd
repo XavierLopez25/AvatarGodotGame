@@ -1,23 +1,23 @@
-extends AnimatedSprite2D 
+extends Area2D # El script ahora "es" el Area2D
 
-var speed = 100.0
-var direction = 1 
+var direction = 1
+
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
-	global_position.y += 15
+	position.y += 15
+	scale.x = direction
 	
-	frame = 0
-	play("earthquake_spawn")
+	body_entered.connect(_on_body_entered)
 	
-	frame_changed.connect(_on_frame_changed)
-	animation_finished.connect(_on_animation_finished)
+	anim.play("earthquake_spawn")
+	anim.animation_finished.connect(_on_animation_finished)
 
-func _on_frame_changed() -> void:
-	if frame == 7:
-		queue_free()
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		print("¡Impacto de tierra confirmado!")
+		queue_free() 
 
 func _on_animation_finished() -> void:
+	# Si nadie lo tocó y la animación acabó, también se borra
 	queue_free()
-
-func _process(_delta: float) -> void:
-	pass
