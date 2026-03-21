@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://7f1pnxkbr82m"]
+
+[ext_resource type="Texture2D" uid="uid://bn3nj7gvg1701" path="res://assets/sprites/Earth/Attack/earth1-removebg-preview.png" id="1_nimjp"]
+[ext_resource type="Texture2D" uid="uid://ch8sf4sgsrybr" path="res://assets/sprites/Earth/Attack/earth2-removebg-preview.png" id="2_u8gtj"]
+[ext_resource type="Texture2D" uid="uid://cv1nmyfb3kry2" path="res://assets/sprites/Earth/Attack/earth3-removebg-preview.png" id="3_4xuwl"]
+[ext_resource type="Texture2D" uid="uid://ccniejf3207em" path="res://assets/sprites/Earth/Attack/earth4-removebg-preview.png" id="4_elplw"]
+[ext_resource type="Texture2D" uid="uid://b5r102ynjvay5" path="res://assets/sprites/Earth/Attack/earth6-removebg-preview.png" id="5_pndxq"]
+[ext_resource type="Texture2D" uid="uid://cc5qdcqo0y05w" path="res://assets/sprites/Earth/Attack/earth5-removebg-preview.png" id="6_8nfm8"]
+[ext_resource type="Texture2D" uid="uid://dsrgihcdf6glq" path="res://assets/sprites/Earth/Attack/earth7-removebg-preview.png" id="7_36l0n"]
+[ext_resource type="Texture2D" uid="uid://dbjo6arwdnpa2" path="res://assets/sprites/Earth/Attack/earth8-removebg-preview.png" id="8_4rgqg"]
+[ext_resource type="Script" uid="uid://cq284yve6ujoa" path="res://scenes/Abilities/Earth/earthquake.gd" id="9_u8gtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8gtj"]
+size = Vector2(201, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_etg6d"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("1_nimjp")
+}, {
+"duration": 0.3,
+"texture": ExtResource("2_u8gtj")
+}, {
+"duration": 0.3,
+"texture": ExtResource("3_4xuwl")
+}, {
+"duration": 0.3,
+"texture": ExtResource("4_elplw")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_pndxq")
+}, {
+"duration": 0.4,
+"texture": ExtResource("6_8nfm8")
+}, {
+"duration": 0.4,
+"texture": ExtResource("7_36l0n")
+}, {
+"duration": 0.4,
+"texture": ExtResource("8_4rgqg")
+}],
+"loop": false,
+"name": &"earthquake_spawn",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Earthquake" type="Node2D" unique_id=326415863]
+position = Vector2(0, -4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1461565614]
+script = ExtResource("9_u8gtj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1003148991]
+position = Vector2(101.00001, 11.999996)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_u8gtj")
+debug_color = Color(0.9840134, 0, 0.34685093, 0.54509807)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1714529866]
+position = Vector2(-7, -32)
+scale = Vector2(0.61890244, 0.6008942)
+sprite_frames = SubResource("SpriteFrames_etg6d")
+animation = &"earthquake_spawn"
+frame = 4
+centered = false

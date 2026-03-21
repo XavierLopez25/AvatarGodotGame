@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://w7ghbv0ccls4" path="res://scenes/Abilities/Air/Air.tscn" id="26_gyvus"]
 [ext_resource type="PackedScene" uid="uid://bl0id25uxhkum" path="res://scenes/Abilities/water/ice.tscn" id="26_xl0g2"]
 [ext_resource type="PackedScene" uid="uid://dijjb1soisc2h" path="res://scenes/Abilities/water/health.tscn" id="27_xl0g2"]
+[ext_resource type="Script" uid="uid://dr8dx1tqjwfs1" path="res://scenes/Abilities/earth_element.gd" id="28_earth"]
+[ext_resource type="PackedScene" uid="uid://7f1pnxkbr82m" path="res://scenes/Abilities/Earth/Earthquake.tscn" id="29_eq"]
+[ext_resource type="PackedScene" uid="uid://cwq5w8cyrf0ux" path="res://scenes/Abilities/Earth/Wall.tscn" id="30_wall"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pcdsq"]
 animations = [{
@@ -170,5 +173,19 @@ zoom = Vector2(1.89, 1.89)
 
 [node name="Ice" parent="Player/ElementManager" unique_id=504578552 instance=ExtResource("26_xl0g2")]
 heal_effect_scene = ExtResource("27_xl0g2")
+
+[node name="Earth" type="Node2D" parent="Player/ElementManager" unique_id=1513655138]
+script = ExtResource("28_earth")
+earthquake_scene = ExtResource("29_eq")
+wall_scene = ExtResource("30_wall")
+
+[node name="TimerQ" type="Timer" parent="Player/ElementManager/Earth" unique_id=1765409813]
+one_shot = true
+
+[node name="TimerW" type="Timer" parent="Player/ElementManager/Earth" unique_id=1765409814]
+one_shot = true
+
+[node name="TimerX" type="Timer" parent="Player/ElementManager/Earth" unique_id=1765409815]
+one_shot = true
 
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]

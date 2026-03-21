@@ -74,7 +74,7 @@ func update_element_reference() -> void:
 		ElementType.WATER:
 			current_element_node = $ElementManager/Ice
 		ElementType.EARTH:
-			current_element_node = $ElementManager/Air # De momento xd
+			current_element_node = $ElementManager/Earth
 
 	if current_element_node:
 		current_element_node.attack_started.connect(_on_attack_locked)
