@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://7f1pnxkbr82m"]
+[gd_scene load_steps=12 format=3 uid="uid://7f1pnxkbr82m"]
 
 [ext_resource type="Texture2D" uid="uid://bn3nj7gvg1701" path="res://assets/sprites/Earth/Attack/earth1-removebg-preview.png" id="1_nimjp"]
 [ext_resource type="Texture2D" uid="uid://ch8sf4sgsrybr" path="res://assets/sprites/Earth/Attack/earth2-removebg-preview.png" id="2_u8gtj"]
@@ -45,21 +45,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Earthquake" type="Node2D" unique_id=326415863]
+[node name="Earthquake" type="Node2D"]
 position = Vector2(0, -4)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1461565614]
+[node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("9_u8gtj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1003148991]
-position = Vector2(101.00001, 11.999996)
-scale = Vector2(1, 0.9999999)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(101, 12)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_u8gtj")
-debug_color = Color(0.9840134, 0, 0.34685093, 0.54509807)
+debug_color = Color(0.984013, 0, 0.346851, 0.545098)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1714529866]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 position = Vector2(-7, -32)
-scale = Vector2(0.61890244, 0.6008942)
+scale = Vector2(0.618902, 0.600894)
 sprite_frames = SubResource("SpriteFrames_etg6d")
 animation = &"earthquake_spawn"
 centered = false

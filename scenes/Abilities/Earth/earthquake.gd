@@ -1,6 +1,6 @@
 extends Area2D # El script ahora "es" el Area2D
 
-var direction = 1
+@export var direction: int = 1
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 

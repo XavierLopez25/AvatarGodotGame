@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cwq5w8cyrf0ux"]
+[gd_scene load_steps=8 format=3 uid="uid://cwq5w8cyrf0ux"]
 
 [ext_resource type="Texture2D" uid="uid://bpot6c0phv2bo" path="res://assets/sprites/Earth/Wall/wall1.png" id="1_2ugxk"]
 [ext_resource type="Texture2D" uid="uid://c53banl3hlv3s" path="res://assets/sprites/Earth/Wall/wall2.png" id="2_d1qxv"]
@@ -27,15 +27,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ugxk"]
-size = Vector2(47.000008, 24.999998)
+size = Vector2(47, 25)
 
-[node name="Wall" type="Node2D" unique_id=1545508644]
+[node name="Wall" type="Node2D"]
 position = Vector2(0, 19)
 scale = Vector2(0.2, 0.2)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828578281]
-position = Vector2(3.999999, -114.000015)
-scale = Vector2(0.28938904, 0.40000007)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -114)
+scale = Vector2(0.289389, 0.4)
 sprite_frames = SubResource("SpriteFrames_uwgm7")
 animation = &"spawn_wall"
 frame = 3
@@ -43,9 +43,9 @@ frame_progress = 1.0
 centered = false
 script = ExtResource("5_4bbtc")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=397453994]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=692077370]
-position = Vector2(26.499996, 52.499992)
-scale = Vector2(0.9999997, 0.9999997)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(26.5, 52.5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2ugxk")

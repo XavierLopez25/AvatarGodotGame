@@ -3,6 +3,7 @@ extends Area2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export var speed = 400.0
 var direction:int = 1
+var inherited_velocity: float = 0.0
 
 
 func _ready() -> void:
@@ -10,7 +11,7 @@ func _ready() -> void:
 	scale = Vector2(0.25, 0.25)
 
 func _physics_process(delta: float) -> void:
-	position.x += speed * direction * delta
+	position.x += (speed * direction + inherited_velocity) * delta
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()

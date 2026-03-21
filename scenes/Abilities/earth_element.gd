@@ -42,9 +42,21 @@ func spawn_ability(scene: PackedScene):
 	if not scene: return
 	var ability = scene.instantiate()
 	
+	var dir := -1 if player.get_node("AnimatedSprite2D").flip_h else 1
+	_apply_direction_recursive(ability, dir)
+	
 	get_tree().current_scene.add_child(ability)
-	
 	ability.global_position = player.get_node("AttackSpawn").global_position
-	
-	if "direction" in ability:
-		ability.direction = -1 if player.get_node("AnimatedSprite2D").flip_h else 1
+
+func _apply_direction_recursive(node: Node, dir: int) -> void:
+	if _node_has_property(node, "direction"):
+		node.set("direction", dir)
+	for child in node.get_children():
+		if child is Node:
+			_apply_direction_recursive(child, dir)
+
+func _node_has_property(node: Object, prop: String) -> bool:
+	for info in node.get_property_list():
+		if info.get("name") == prop:
+			return true
+	return false

@@ -1,6 +1,6 @@
 extends AnimatedSprite2D 
 
-var direction = 1 # Se recibe del player
+@export var direction: int = 1 # Se recibe del player
 
 func _ready() -> void:
 	position.y += 150

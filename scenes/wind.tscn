@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c4xmwm86g88m5"]
+[gd_scene load_steps=0 format=3 uid="uid://c4xmwm86g88m5"]
 
 [ext_resource type="Texture2D" uid="uid://1f851m002m6l" path="res://assets/sprites/Air/WindAttack/W401-1.png" id="1_7fnkb"]
 [ext_resource type="Script" path="res://scenes/Abilities/Air/wind.gd" id="1_khwt7"]
