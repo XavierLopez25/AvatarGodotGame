@@ -1,0 +1,88 @@
+[gd_scene load_steps=20 format=3 uid="uid://ebsqy5r8bfae"]
+
+[ext_resource type="Script" uid="uid://b8elu8jr5234c" path="res://scenes/Abilities/fire/fire_ball.gd" id="1_o3wyt"]
+[ext_resource type="Texture2D" uid="uid://1f851m002m6l" path="res://assets/sprites/Air/WindAttack/W401-1.png" id="2_pd8e2"]
+[ext_resource type="Texture2D" uid="uid://cmuqf6hykpxqr" path="res://assets/sprites/Air/WindAttack/W401-2.png" id="3_m0w78"]
+[ext_resource type="Texture2D" uid="uid://q4cdt0li3bk4" path="res://assets/sprites/Air/WindAttack/W401-3.png" id="4_wad5l"]
+[ext_resource type="Texture2D" uid="uid://6tfsgyl8du6w" path="res://assets/sprites/Air/WindAttack/W401-4.png" id="5_qaarv"]
+[ext_resource type="Texture2D" uid="uid://cnpmkncx75vp4" path="res://assets/sprites/Air/WindAttack/W401-5.png" id="6_ixtfl"]
+[ext_resource type="Texture2D" uid="uid://bs4gn5ysidrd4" path="res://assets/sprites/Air/WindAttack/W401-6.png" id="7_f0jff"]
+[ext_resource type="Texture2D" uid="uid://bop0gdbvk51lc" path="res://assets/sprites/Air/WindAttack/W401-7.png" id="8_s6lyg"]
+[ext_resource type="Texture2D" uid="uid://dnb4xl4pajy0" path="res://assets/sprites/Air/WindAttack/W401-8.png" id="9_tad22"]
+[ext_resource type="Texture2D" uid="uid://dbcido3d3xl52" path="res://assets/sprites/Air/WindAttack/W401-9.png" id="10_81o0n"]
+[ext_resource type="Texture2D" uid="uid://b4dft228bixdb" path="res://assets/sprites/Air/WindAttack/W401-10.png" id="11_3ypin"]
+[ext_resource type="Texture2D" uid="uid://0h6f7b4pmbme" path="res://assets/sprites/Air/WindAttack/W401-11.png" id="12_7kq5s"]
+[ext_resource type="Texture2D" uid="uid://6p31vhf20v7t" path="res://assets/sprites/Air/WindAttack/W401-12.png" id="13_k2a5l"]
+[ext_resource type="Texture2D" uid="uid://d4dconpfd6vv1" path="res://assets/sprites/Air/WindAttack/W401-13.png" id="14_5gxab"]
+[ext_resource type="Texture2D" uid="uid://b6jifaadnwavo" path="res://assets/sprites/Air/WindAttack/W401-14.png" id="15_aa2bc"]
+[ext_resource type="Texture2D" uid="uid://b7ucnr4kky5nm" path="res://assets/sprites/Air/WindAttack/W401-15.png" id="16_jj3ek"]
+[ext_resource type="Texture2D" uid="uid://c7sg0qnc63q0d" path="res://assets/sprites/Air/WindAttack/W401-16.png" id="17_h01w1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uwd1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqr1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pd8e2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m0w78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wad5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qaarv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ixtfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f0jff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s6lyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tad22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_81o0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3ypin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7kq5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_k2a5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5gxab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_aa2bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jj3ek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h01w1")
+}],
+"loop": false,
+"name": &"Wind",
+"speed": 6.0
+}]
+
+[node name="Fire_Q" type="Area2D"]
+script = ExtResource("1_o3wyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6uwd1")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 58)
+sprite_frames = SubResource("SpriteFrames_vqr1j")
+animation = &"Wind"
