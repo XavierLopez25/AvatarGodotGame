@@ -1,14 +1,17 @@
 extends RigidBody2D
 
 @export var direction: int = 1
+@export var spawn_distance: int = 32
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	lock_rotation = true
 	freeze = true
 	
-	scale.x = direction
-	position.y += 0
+	#scale.x = direction
+	position.x += (spawn_distance * direction)
+	position.y += 15
+	sprite.flip_h = (direction == -1)
 	
 	sprite.frame_changed.connect(_on_frame_changed)
 	sprite.play("spawn_wall")

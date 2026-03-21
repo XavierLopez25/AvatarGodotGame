@@ -6,7 +6,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1vj1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ugxk"]
-size = Vector2(24, 30.3333)
+size = Vector2(24, 23.3333)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbaej"]
 atlas = ExtResource("1_1vj1q")
@@ -58,15 +58,15 @@ physics_material_override = SubResource("PhysicsMaterial_1vj1q")
 script = ExtResource("5_4bbtc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0, 0.25)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_2ugxk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
-position = Vector2(-18, -39)
-scale = Vector2(0.115756, 0.130064)
+position = Vector2(-18, -22)
+scale = Vector2(0.115756, 0.0959488)
 sprite_frames = SubResource("SpriteFrames_uwgm7")
 animation = &"spawn_wall"
-frame = 3
+frame = 4
 frame_progress = 1.0
+speed_scale = 3.0
 centered = false

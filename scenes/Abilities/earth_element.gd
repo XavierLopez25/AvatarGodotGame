@@ -24,7 +24,7 @@ func attack_w(): # Muro de Tierra
 	
 	print("¡Muro de piedra!")
 	attack_started.emit()
-	player.get_node("AnimatedSprite2D").play("spawn_wall")
+	player.get_node("AnimatedSprite2D").play("attack")
 	
 	await get_tree().create_timer(0.4).timeout
 	
