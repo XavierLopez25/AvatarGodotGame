@@ -1,0 +1,172 @@
+[gd_scene load_steps=29 format=3 uid="uid://dl8u2x12hhhmy"]
+
+[ext_resource type="Script" uid="uid://4biytkgxx0dn" path="res://scenes/player.gd" id="1_5tklm"]
+[ext_resource type="Texture2D" uid="uid://cyxwu2ape02fv" path="res://assets/sprites/Air/Jump/AirJump_1.png" id="2_g055u"]
+[ext_resource type="Texture2D" uid="uid://b4g0o1vk61nyk" path="res://assets/sprites/Air/Jump/AirJump_2.png" id="3_2racp"]
+[ext_resource type="Texture2D" uid="uid://b6hieuji3r23v" path="res://assets/sprites/Air/Jump/AirJump_3.png" id="4_gyvus"]
+[ext_resource type="Texture2D" uid="uid://bf3b0m8c47erh" path="res://assets/sprites/Air/Jump/AirJump_4.png" id="5_xl0g2"]
+[ext_resource type="Texture2D" uid="uid://be7uvwrl5nk7q" path="res://assets/sprites/Air/Jump/AirJump_5.png" id="6_0s5oc"]
+[ext_resource type="Texture2D" uid="uid://dgsndrh032gl3" path="res://assets/sprites/Air/Jump/AirJump_6.png" id="7_oy4nb"]
+[ext_resource type="Texture2D" uid="uid://crmcau6tgig4t" path="res://assets/sprites/Air/Jump/AirJump_7.png" id="8_517nw"]
+[ext_resource type="Texture2D" uid="uid://dthq1gickimrx" path="res://assets/sprites/Aang/Attack/Attack_1.png" id="9_j34h7"]
+[ext_resource type="Texture2D" uid="uid://cjqead1pe67p4" path="res://assets/sprites/Aang/Attack/Attack_2.png" id="10_jgsuk"]
+[ext_resource type="Texture2D" uid="uid://dimk84fll7mj5" path="res://assets/sprites/Aang/Attack/Attack_3.png" id="11_mn6xr"]
+[ext_resource type="Texture2D" uid="uid://doxrtwkruy1kr" path="res://assets/sprites/Aang/Attack/Attack_4.png" id="12_i86ya"]
+[ext_resource type="Texture2D" uid="uid://dbjyt2i85pg1j" path="res://assets/sprites/Aang/Attack/Attack_5.png" id="13_r5bm5"]
+[ext_resource type="Texture2D" uid="uid://bfwmesmb31pfm" path="res://assets/sprites/Aang/Idle/Idle.png" id="14_pew83"]
+[ext_resource type="Texture2D" uid="uid://bxg5g4ti8pxmc" path="res://assets/sprites/Aang/Jump/Jump_1.png" id="15_ak2lr"]
+[ext_resource type="Texture2D" uid="uid://bovlbc83hns0c" path="res://assets/sprites/Aang/Jump/Jump_2.png" id="16_00bg4"]
+[ext_resource type="Texture2D" uid="uid://d0jefrtmvs8m7" path="res://assets/sprites/Aang/Jump/Jump_3.png" id="17_u20ll"]
+[ext_resource type="Texture2D" uid="uid://bboclcotfi8pc" path="res://assets/sprites/Aang/Jump/Jump_4.png" id="18_cucib"]
+[ext_resource type="Texture2D" uid="uid://bb4s8dbqx7lir" path="res://assets/sprites/Aang/Jump/Jump_5.png" id="19_6gp0x"]
+[ext_resource type="Texture2D" uid="uid://dim1x27q4ldh6" path="res://assets/sprites/Aang/Walk/Walk_1.png" id="20_xpeqi"]
+[ext_resource type="Texture2D" uid="uid://bfqiomayh5xyc" path="res://assets/sprites/Aang/Walk/Walk_2.png" id="21_suyb7"]
+[ext_resource type="Texture2D" uid="uid://dxwc5qnrqv4as" path="res://assets/sprites/Aang/Walk/Walk_3.png" id="22_ojadi"]
+[ext_resource type="Texture2D" uid="uid://d2idqj5yj13gm" path="res://assets/sprites/Aang/Walk/Walk_4.png" id="23_swwbn"]
+[ext_resource type="PackedScene" uid="uid://dtl7wis37bpy0" path="res://scenes/Abilities/fire/Fire.tscn" id="24_g055u"]
+[ext_resource type="Script" uid="uid://xkmxxfyme8a5" path="res://scenes/Abilities/Air/air.gd" id="25_2racp"]
+[ext_resource type="PackedScene" uid="uid://w7ghbv0ccls4" path="res://scenes/Abilities/Air/Air.tscn" id="26_gyvus"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcdsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g055u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2racp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gyvus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xl0g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0s5oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oy4nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_517nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oy4nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0s5oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xl0g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2racp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g055u")
+}],
+"loop": true,
+"name": &"air_jump",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_j34h7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jgsuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mn6xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i86ya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_r5bm5")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_pew83")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ak2lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_00bg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_u20ll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cucib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6gp0x")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_xpeqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_suyb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ojadi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_swwbn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_63i3e"]
+radius = 13.0
+height = 34.0
+
+[node name="Player" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(-4, -67)
+script = ExtResource("1_5tklm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(0, -17)
+sprite_frames = SubResource("SpriteFrames_pcdsq")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -17)
+shape = SubResource("CapsuleShape2D_63i3e")
+
+[node name="AttackSpawn" type="Marker2D" parent="Player"]
+position = Vector2(26, -32)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.89, 1.89)
+
+[node name="ElementManager" type="Node2D" parent="Player"]
+
+[node name="Fire" parent="Player/ElementManager" instance=ExtResource("24_g055u")]
+
+[node name="Air" type="Node2D" parent="Player/ElementManager"]
+script = ExtResource("25_2racp")
+wind_scene = ExtResource("26_gyvus")
+
+[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]

@@ -1,167 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdgx8vqqktf52"]
+[gd_scene load_steps=3 format=3 uid="uid://cdgx8vqqktf52"]
 
-[ext_resource type="Texture2D" uid="uid://bfwmesmb31pfm" path="res://assets/sprites/Aang/Idle/Idle.png" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://4biytkgxx0dn" path="res://scenes/player.gd" id="1_pm3ni"]
-[ext_resource type="Texture2D" uid="uid://cyxwu2ape02fv" path="res://assets/sprites/Air/Jump/AirJump_1.png" id="2_85g3d"]
-[ext_resource type="Texture2D" uid="uid://b4g0o1vk61nyk" path="res://assets/sprites/Air/Jump/AirJump_2.png" id="3_choun"]
-[ext_resource type="Texture2D" uid="uid://b6hieuji3r23v" path="res://assets/sprites/Air/Jump/AirJump_3.png" id="4_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://bf3b0m8c47erh" path="res://assets/sprites/Air/Jump/AirJump_4.png" id="5_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://be7uvwrl5nk7q" path="res://assets/sprites/Air/Jump/AirJump_5.png" id="6_trceg"]
-[ext_resource type="Texture2D" uid="uid://dgsndrh032gl3" path="res://assets/sprites/Air/Jump/AirJump_6.png" id="7_a8y0u"]
-[ext_resource type="Texture2D" uid="uid://crmcau6tgig4t" path="res://assets/sprites/Air/Jump/AirJump_7.png" id="8_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://dthq1gickimrx" path="res://assets/sprites/Aang/Attack/Attack_1.png" id="8_jscy8"]
-[ext_resource type="Texture2D" uid="uid://cjqead1pe67p4" path="res://assets/sprites/Aang/Attack/Attack_2.png" id="9_pm3ni"]
-[ext_resource type="Texture2D" uid="uid://bxg5g4ti8pxmc" path="res://assets/sprites/Aang/Jump/Jump_1.png" id="9_trceg"]
-[ext_resource type="Texture2D" uid="uid://bovlbc83hns0c" path="res://assets/sprites/Aang/Jump/Jump_2.png" id="10_a8y0u"]
-[ext_resource type="Texture2D" uid="uid://dimk84fll7mj5" path="res://assets/sprites/Aang/Attack/Attack_3.png" id="10_y6deb"]
-[ext_resource type="Texture2D" uid="uid://d0jefrtmvs8m7" path="res://assets/sprites/Aang/Jump/Jump_3.png" id="11_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://doxrtwkruy1kr" path="res://assets/sprites/Aang/Attack/Attack_4.png" id="11_og1vs"]
-[ext_resource type="Texture2D" uid="uid://dbjyt2i85pg1j" path="res://assets/sprites/Aang/Attack/Attack_5.png" id="12_2wyq8"]
-[ext_resource type="Texture2D" uid="uid://bboclcotfi8pc" path="res://assets/sprites/Aang/Jump/Jump_4.png" id="12_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://bb4s8dbqx7lir" path="res://assets/sprites/Aang/Jump/Jump_5.png" id="13_muem4"]
-[ext_resource type="Texture2D" uid="uid://dim1x27q4ldh6" path="res://assets/sprites/Aang/Walk/Walk_1.png" id="19_vxglm"]
-[ext_resource type="Texture2D" uid="uid://bfqiomayh5xyc" path="res://assets/sprites/Aang/Walk/Walk_2.png" id="20_2f3dj"]
-[ext_resource type="Texture2D" uid="uid://dxwc5qnrqv4as" path="res://assets/sprites/Aang/Walk/Walk_3.png" id="21_yq6so"]
-[ext_resource type="Texture2D" uid="uid://d2idqj5yj13gm" path="res://assets/sprites/Aang/Walk/Walk_4.png" id="22_fv21b"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0wfyh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_85g3d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_choun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ya4ey")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_eb6dy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_trceg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_a8y0u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_jkv2x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_a8y0u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_trceg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_eb6dy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_choun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_85g3d")
-}],
-"loop": true,
-"name": &"air_jump",
-"speed": 16.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_jscy8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_pm3ni")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_y6deb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_og1vs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_2wyq8")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_o5qli")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 16.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_trceg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_a8y0u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_jkv2x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_jbj1t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_muem4")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("19_vxglm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_2f3dj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_yq6so")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_fv21b")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 8.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgp6g"]
-radius = 13.0
-height = 34.0
+[ext_resource type="PackedScene" uid="uid://dl8u2x12hhhmy" path="res://scenes/Player/Player.tscn" id="1_o5qli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(40, 3.23417)
 
 [node name="Main" type="Node2D"]
-
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-4, -67)
-script = ExtResource("1_pm3ni")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(0, -17)
-sprite_frames = SubResource("SpriteFrames_0wfyh")
-animation = &"attack"
-frame = 4
-frame_progress = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -17)
-shape = SubResource("CapsuleShape2D_sgp6g")
-
-[node name="AttackSpawn" type="Marker2D" parent="Player"]
-position = Vector2(26, -32)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.89, 1.89)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -171,9 +15,9 @@ scale = Vector2(1200, 1200)
 shape = SubResource("RectangleShape2D_o5qli")
 
 [node name="ColorRect" type="ColorRect" parent="Floor"]
-visible = false
 offset_left = -23998.0
 offset_right = 24004.0
 offset_bottom = 3875.0
+color = Color(0.543888, 0.993432, 0.782, 1)
 
-[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
