@@ -12,7 +12,7 @@ const JUMP_VELOCITY = -360.0
 var health = 100.0
 var max_health = 100.0
 
-enum ElementType { FIRE, AIR, WATER, EARTH }
+enum ElementType { AIR, WATER, EARTH, FIRE }
 var current_element: ElementType = ElementType.AIR
 
 var is_attacking := false
@@ -67,14 +67,17 @@ func update_element_reference() -> void:
 		current_element_node.attack_finished.disconnect(_on_attack_unlocked)
 
 	match current_element:
-		ElementType.FIRE:
-			current_element_node = $ElementManager/Fire
 		ElementType.AIR:
 			current_element_node = $ElementManager/Air
 		ElementType.WATER:
 			current_element_node = $ElementManager/Ice
 		ElementType.EARTH:
 			current_element_node = $ElementManager/Earth
+		ElementType.FIRE:
+			current_element_node = $ElementManager/Fire
+		
+		
+		
 
 	if current_element_node:
 		current_element_node.attack_started.connect(_on_attack_locked)
@@ -84,6 +87,10 @@ func update_element_reference() -> void:
 func cycle_element() -> void:
 	current_element = ((current_element + 1) % 4) as ElementType
 	update_element_reference()
+	var ui_node = get_tree().current_scene.find_child("Control", true, false)
+	
+	if ui_node:
+		ui_node.actualizar_icono(current_element)
 
 func _on_attack_locked():
 	is_locked = true

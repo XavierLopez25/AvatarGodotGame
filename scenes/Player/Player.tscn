@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dl8u2x12hhhmy"]
+[gd_scene format=3 uid="uid://04dvefv78kt8"]
 
 [ext_resource type="Script" uid="uid://4biytkgxx0dn" path="res://scenes/player.gd" id="1_5tklm"]
 [ext_resource type="Texture2D" uid="uid://cyxwu2ape02fv" path="res://assets/sprites/Air/Jump/AirJump_1.png" id="2_g055u"]
@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dxwc5qnrqv4as" path="res://assets/sprites/Aang/Walk/Walk_3.png" id="22_ojadi"]
 [ext_resource type="Texture2D" uid="uid://d2idqj5yj13gm" path="res://assets/sprites/Aang/Walk/Walk_4.png" id="23_swwbn"]
 [ext_resource type="PackedScene" uid="uid://dtl7wis37bpy0" path="res://scenes/Abilities/fire/Fire.tscn" id="24_g055u"]
-[ext_resource type="PackedScene" uid="uid://w7ghbv0ccls4" path="res://scenes/Abilities/Air/Air.tscn" id="26_gyvus"]
+[ext_resource type="PackedScene" uid="uid://bn3djn4g13x2v" path="res://scenes/Abilities/Air/Air.tscn" id="26_gyvus"]
 [ext_resource type="PackedScene" uid="uid://bl0id25uxhkum" path="res://scenes/Abilities/water/ice.tscn" id="26_xl0g2"]
 [ext_resource type="PackedScene" uid="uid://dijjb1soisc2h" path="res://scenes/Abilities/water/health.tscn" id="27_xl0g2"]
 [ext_resource type="Script" uid="uid://dr8dx1tqjwfs1" path="res://scenes/Abilities/earth_element.gd" id="28_earth"]
