@@ -1,23 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdgx8vqqktf52"]
+[gd_scene format=3 uid="uid://cdgx8vqqktf52"]
 
 [ext_resource type="PackedScene" uid="uid://dl8u2x12hhhmy" path="res://scenes/Player/Player.tscn" id="1_o5qli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(40, 3.23417)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1788130018]
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1134665486]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1757114187]
 position = Vector2(0, 1943)
 scale = Vector2(1200, 1200)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="ColorRect" type="ColorRect" parent="Floor"]
-offset_left = -23998.0
-offset_right = 24004.0
-offset_bottom = 3875.0
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=201205706]
+offset_left = -23961.0
+offset_top = 236.0
+offset_right = 24041.0
+offset_bottom = 4111.0
 color = Color(0.543888, 0.993432, 0.782, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_o5qli")]
+[node name="Player" parent="." unique_id=1720780193 instance=ExtResource("1_o5qli")]

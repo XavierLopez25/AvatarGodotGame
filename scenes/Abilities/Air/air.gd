@@ -7,7 +7,6 @@ func attack_q():
 	
 	player.get_node("AnimatedSprite2D").play("attack")
 	player.is_attacking = true 
-	
 	spawn_wind()
 	timer_q.start(0.4)
 
@@ -19,8 +18,7 @@ func spawn_wind():
 	var wind = wind_scene.instantiate()
 	var is_flipped = player.get_node("AnimatedSprite2D").flip_h
 	
-	# Se buguea xd
-	# wind.direction = -1 if is_flipped else 1
+	wind.direction = -1 if is_flipped else 1
 	
 	get_tree().current_scene.add_child(wind)
 	

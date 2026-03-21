@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bl0id25uxhkum"]
+
+[ext_resource type="Script" uid="uid://bvusxmrsfwduv" path="res://scenes/Abilities/water_element.gd" id="1_w2a3l"]
+[ext_resource type="PackedScene" uid="uid://beyg8yl8lbbnl" path="res://scenes/Abilities/water/ice_Q.tscn" id="2_eiybc"]
+
+[node name="Ice" type="Node2D" unique_id=504578552]
+script = ExtResource("1_w2a3l")
+ice_ball_scene = ExtResource("2_eiybc")
+
+[node name="TimerQ" type="Timer" parent="." unique_id=52879548]
+one_shot = true
+
+[node name="TimerW" type="Timer" parent="." unique_id=1772495084]
+one_shot = true
+
+[node name="TimerX" type="Timer" parent="." unique_id=267295093]
+one_shot = true
