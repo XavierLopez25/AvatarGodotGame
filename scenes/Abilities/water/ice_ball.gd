@@ -1,13 +1,13 @@
 extends Area2D
 
-@export var speed = 500.0
-@export var damage = 10.0
+@export var speed = 350.0
+@export var damage = 15.0
 var direction = 1
 var inherited_velocity: float = 0.0
 
 func _ready():
-	scale = Vector2(0.20, 0.20) 
-	$AnimatedSprite2D.play("Wind")
+	scale = Vector2(0.15, 0.15) 
+	$AnimatedSprite2D.play("Ice")
 	if direction == -1:
 		$AnimatedSprite2D.flip_h = true
 

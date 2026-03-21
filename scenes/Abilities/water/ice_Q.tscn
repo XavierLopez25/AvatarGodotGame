@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://beyg8yl8lbbnl"]
+
+[ext_resource type="Texture2D" uid="uid://wsvgrb6c46tc" path="res://assets/sprites/water/ice/I5050-1.png" id="1_nc2vw"]
+[ext_resource type="Script" uid="uid://c2kx1u1jrl55o" path="res://scenes/Abilities/water/ice_ball.gd" id="1_ue345"]
+[ext_resource type="Texture2D" uid="uid://uctlkvuryegb" path="res://assets/sprites/water/ice/I5050-2.png" id="2_ue345"]
+[ext_resource type="Texture2D" uid="uid://da1xxbyay2ndw" path="res://assets/sprites/water/ice/I5050-3.png" id="3_twiso"]
+[ext_resource type="Texture2D" uid="uid://4cphafx0j3th" path="res://assets/sprites/water/ice/I5050-4.png" id="4_es3cc"]
+[ext_resource type="Texture2D" uid="uid://blf5ir3dxogp8" path="res://assets/sprites/water/ice/I5050-5.png" id="5_0p4mh"]
+[ext_resource type="Texture2D" uid="uid://bxy1omk1e5jnj" path="res://assets/sprites/water/ice/I5050-6.png" id="6_vom0x"]
+[ext_resource type="Texture2D" uid="uid://bllwaibel2bqa" path="res://assets/sprites/water/ice/I5050-7.png" id="7_4d86n"]
+[ext_resource type="Texture2D" uid="uid://djwt6u7tk6mhk" path="res://assets/sprites/water/ice/I5050-8.png" id="8_bhaod"]
+[ext_resource type="Texture2D" uid="uid://cqss8hosmbhnj" path="res://assets/sprites/water/ice/I5050-9.png" id="9_qmesh"]
+[ext_resource type="Texture2D" uid="uid://bsujeaamxkfrm" path="res://assets/sprites/water/ice/I5050-10.png" id="10_ckxx1"]
+[ext_resource type="Texture2D" uid="uid://y25p7obqlkhk" path="res://assets/sprites/water/ice/I5050-11.png" id="11_jilrj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xsmn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nc2vw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ue345")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_twiso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_es3cc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0p4mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vom0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4d86n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bhaod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qmesh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ckxx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jilrj")
+}],
+"loop": false,
+"name": &"Ice",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_58ypx"]
+
+[node name="IceQ" type="Area2D" unique_id=1222791834]
+script = ExtResource("1_ue345")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1385004447]
+position = Vector2(24, 58)
+sprite_frames = SubResource("SpriteFrames_7xsmn")
+animation = &"Ice"
+frame = 10
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450266254]
+shape = SubResource("CircleShape2D_58ypx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

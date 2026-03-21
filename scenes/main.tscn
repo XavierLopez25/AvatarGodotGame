@@ -15,9 +15,10 @@ scale = Vector2(1200, 1200)
 shape = SubResource("RectangleShape2D_o5qli")
 
 [node name="ColorRect" type="ColorRect" parent="Floor"]
-offset_left = -23998.0
-offset_right = 24004.0
-offset_bottom = 3875.0
+offset_left = -23961.0
+offset_top = 236.0
+offset_right = 24041.0
+offset_bottom = 4111.0
 color = Color(0.543888, 0.993432, 0.782, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]

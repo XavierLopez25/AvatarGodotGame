@@ -8,6 +8,9 @@ var is_charging_x = false
 func attack_q():
 	if not timer_q.is_stopped(): return
 	
+	player.get_node("AnimatedSprite2D").play("attack")
+	player.is_attacking = true
+	
 	print("Lanzando llama!")
 	spawn_projectile(fire_ball_scene)
 	timer_q.start(0.5)
@@ -42,6 +45,12 @@ func spawn_projectile(scene: PackedScene):
 	if not scene: return
 	var proj = scene.instantiate()
 	
-	get_tree().current_scene.add_child(proj)
+	var is_flipped = player.get_node("AnimatedSprite2D").flip_h
+	proj.direction = -1 if is_flipped else 1
+	proj.inherited_velocity = player.velocity.x
 	
+	get_tree().current_scene.add_child(proj)
 	proj.global_position = player.get_node("AttackSpawn").global_position
+	
+	if proj.has_node("AnimatedSprite2D"):
+		proj.get_node("AnimatedSprite2D").flip_h = is_flipped

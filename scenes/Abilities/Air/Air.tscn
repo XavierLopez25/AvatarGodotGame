@@ -1,16 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://w7ghbv0ccls4"]
+[gd_scene format=3 uid="uid://w7ghbv0ccls4"]
 
 [ext_resource type="Script" uid="uid://xkmxxfyme8a5" path="res://scenes/Abilities/Air/air.gd" id="1_kfx0k"]
 [ext_resource type="PackedScene" uid="uid://p41buycxo7py" path="res://scenes/Abilities/Air/Air_Q.tscn" id="2_g6vfg"]
 
-[node name="Air" type="Node2D"]
+[node name="Air" type="Node2D" unique_id=1738675723]
 script = ExtResource("1_kfx0k")
 wind_scene = ExtResource("2_g6vfg")
 
-[node name="TimerQ" type="Timer" parent="."]
+[node name="TimerQ" type="Timer" parent="." unique_id=546012284]
+one_shot = true
 
-[node name="TimerW" type="Timer" parent="."]
+[node name="TimerW" type="Timer" parent="." unique_id=1311217277]
+one_shot = true
 
-[node name="TimerX" type="Timer" parent="."]
+[node name="TimerX" type="Timer" parent="." unique_id=1828724118]
+one_shot = true
 
-[node name="ChargeTimer" type="Timer" parent="."]
+[node name="ChargeTimer" type="Timer" parent="." unique_id=682318808]

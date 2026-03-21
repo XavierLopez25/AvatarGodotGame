@@ -9,6 +9,9 @@ var current_element_node: Element
 const SPEED = 300.0
 const JUMP_VELOCITY = -360.0
 
+var health = 100.0
+var max_health = 100.0
+
 enum ElementType { FIRE, AIR, WATER, EARTH }
 var current_element: ElementType = ElementType.AIR
 
@@ -32,18 +35,15 @@ func _physics_process(delta: float) -> void:
 
 	handle_abilities()
 
-	if not is_attacking:
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 		
-		var direction := Input.get_axis("move_left", "move_right")
-		if direction != 0:
-			velocity.x = direction * SPEED
-			anim.flip_h = direction < 0
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+	var direction := Input.get_axis("move_left", "move_right")
+	if direction != 0:
+		velocity.x = direction * SPEED
+		anim.flip_h = direction < 0
 	else:
-		velocity.x = 0
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 			
 	move_and_slide()
 	update_animation()
@@ -51,16 +51,14 @@ func _physics_process(delta: float) -> void:
 
 func handle_abilities() -> void:
 	if is_attacking or is_locked: return
-	if not current_element_node: return
-
+	if not current_element_node:
+		print("ERROR: current_element_node es null")
+		return
 	if Input.is_action_just_pressed("attack"):
 		current_element_node.attack_q()
-	
-	if Input.is_key_pressed(KEY_Q):
-		current_element_node.attack_q()
-	if Input.is_key_pressed(KEY_W):
+	if Input.is_action_just_pressed("ability_w"):
 		current_element_node.attack_w()
-	if Input.is_key_pressed(KEY_X):
+	if Input.is_action_just_pressed("ability_x"):
 		current_element_node.attack_x()
 
 func update_element_reference() -> void:
@@ -73,12 +71,11 @@ func update_element_reference() -> void:
 			current_element_node = $ElementManager/Fire
 		ElementType.AIR:
 			current_element_node = $ElementManager/Air
-		#ElementType.WATER:
-		#	current_element_node = $ElementManager/Water
-		#ElementType.EARTH:
-		#	current_element_node = $ElementManager/Earth
-		
-	
+		ElementType.WATER:
+			current_element_node = $ElementManager/Ice
+		ElementType.EARTH:
+			current_element_node = $ElementManager/Air # De momento xd
+
 	if current_element_node:
 		current_element_node.attack_started.connect(_on_attack_locked)
 		current_element_node.attack_finished.connect(_on_attack_unlocked)
@@ -95,18 +92,26 @@ func _on_attack_unlocked():
 	is_locked = false
 
 func update_animation() -> void:
-	if is_locked or is_attacking: return
-
+	if is_locked: return
+	
+	if is_attacking and anim.animation == "attack" and anim.is_playing():
+		return
+		
+	var new_anim = ""
+	
 	if not is_on_floor():
 		# Salto de ataque para aire
 		if current_element == ElementType.AIR:
-			anim.play("air_jump")
+			new_anim = "air_jump"
 		else:
-			anim.play("jump")
+			new_anim = "jump"
 	elif abs(velocity.x) > 5:
-		anim.play("walk")
+		new_anim = "walk"
 	else:
-		anim.play("idle")
+		new_anim = "idle"
+		
+	if anim.animation != new_anim:
+		anim.play(new_anim)
 
 func update_attack_spawn() -> void:
 	attack_spawn.position.x = -20 if anim.flip_h else 20
