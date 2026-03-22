@@ -21,7 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 		body.take_damage(damage)
 		# Ensure we don't keep triggering while overlapping.
 		set_deferred("monitoring", false)
-		queue_free()
+		
 
 func _on_animation_finished() -> void:
 	queue_free()
