@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdgx8vqqktf52"]
+[gd_scene load_steps=10 format=3 uid="uid://cdgx8vqqktf52"]
 
 [ext_resource type="PackedScene" uid="uid://dl8u2x12hhhmy" path="res://scenes/Player/Player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://rass3pbgep5i" path="res://assets/sprites/UI/aire.png" id="2_tefeu"]
 [ext_resource type="Texture2D" uid="uid://dddwfh8nbestl" path="res://assets/sprites/UI/agua.png" id="3_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://cii6xbui02lb1" path="res://assets/sprites/UI/fuego.png" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://3ds4m4o5jg11" path="res://assets/sprites/UI/tierra.png" id="5_85g3d"]
-[ext_resource type="Script" uid="uid://bvvbkp8fwxe8m" path="res://scenes/ui.gd" id="6_choun"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="6_choun"]
+[ext_resource type="PackedScene" uid="uid://c4q2u2f7pnb3b" path="res://scenes/Enemies/Mushroom.tscn" id="7_mushroom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(40, 3.23417)
@@ -47,6 +48,10 @@ offset_bottom = 4111.0
 color = Color(0.543888, 0.993432, 0.782, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(2, 68)
+
+[node name="Mushroom" parent="." instance=ExtResource("7_mushroom")]
+position = Vector2(203, -7)
 
 [node name="CanvasGroup" type="CanvasLayer" parent="."]
 scale = Vector2(0.4, 0.4)
