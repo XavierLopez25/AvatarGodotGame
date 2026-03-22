@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed = 350.0
-@export var damage = 15.0
+@export var stun_duration = 1.2
 var direction = 1
 var inherited_velocity: float = 0.0
 
@@ -19,6 +19,6 @@ func _on_animated_sprite_2d_animation_finished():
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		if body.has_method("take_damage"):
-			body.take_damage(damage)
+		if body.has_method("stun"):
+			body.stun(stun_duration)
 	queue_free()
