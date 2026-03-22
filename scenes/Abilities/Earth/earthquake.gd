@@ -7,7 +7,7 @@ extends Area2D
 var _hit_once := false
 
 func _ready() -> void:
-	position.y += 15
+	position.y += 25
 	scale.x = direction
 	body_entered.connect(_on_body_entered)
 	anim.play("earthquake_spawn")

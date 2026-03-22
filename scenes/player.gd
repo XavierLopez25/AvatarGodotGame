@@ -9,6 +9,12 @@ var current_element_node: Element
 const SPEED = 300.0
 const JUMP_VELOCITY = -360.0
 
+const DASH_SPEED = 800.0
+const DASH_DURATION = 0.3
+var is_dashing := false
+var dash_timer := 0.0
+
+
 var health = 100.0
 var max_health = 100.0
 
@@ -23,12 +29,25 @@ func _ready() -> void:
 	update_element_reference()
 
 func _physics_process(delta: float) -> void:
+	# Si está bloqueado (por ataque normal), no se mueve
 	if is_locked:
 		velocity = Vector2.ZERO 
 		return
 
+	# Lógica de Gravedad
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
+	# Manejo de Dash
+	if Input.is_action_just_pressed("Dash") and not is_dashing:
+		start_dash()
+
+	if is_dashing:
+		dash_timer -= delta
+		if dash_timer <= 0:
+			is_dashing = false
+	else:
+		handle_movement()
 
 	if Input.is_action_just_pressed("change_element"):
 		cycle_element()
@@ -37,30 +56,42 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+			
+	move_and_slide()
+	update_animation()
+	update_attack_spawn()
+
+func start_dash() -> void:
+	is_dashing = true
+	dash_timer = DASH_DURATION
+	
+	var dash_dir = -1 if anim.flip_h else 1
+	velocity.x = dash_dir * DASH_SPEED
+	velocity.y = 0
+	
+	anim.play("attack")
+	
+func handle_movement() -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction != 0:
 		velocity.x = direction * SPEED
 		anim.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-			
-	move_and_slide()
-	update_animation()
-	update_attack_spawn()
-
+		
 func handle_abilities() -> void:
-	if is_attacking or is_locked: return
+	if is_attacking or is_locked or is_dashing: return
+	
 	if not current_element_node:
-		print("ERROR: current_element_node es null")
 		return
+		
 	if Input.is_action_just_pressed("attack"):
 		current_element_node.attack_q()
 	if Input.is_action_just_pressed("ability_w"):
 		current_element_node.attack_w()
 	if Input.is_action_just_pressed("ability_x"):
 		current_element_node.attack_x()
-	# Romper rocas:
+	
 	if current_element == ElementType.EARTH:
 		if Input.is_action_just_pressed("ability_z"):
 			get_tree().call_group("rocas", "destroy")
@@ -103,7 +134,7 @@ func _on_attack_unlocked():
 	is_locked = false
 
 func update_animation() -> void:
-	if is_locked: return
+	if is_locked or is_dashing: return
 	
 	if is_attacking and anim.animation == "attack" and anim.is_playing():
 		return
@@ -111,11 +142,7 @@ func update_animation() -> void:
 	var new_anim = ""
 	
 	if not is_on_floor():
-		# Salto de ataque para aire
-		if current_element == ElementType.AIR:
-			new_anim = "air_jump"
-		else:
-			new_anim = "jump"
+		new_anim = "air_jump" if current_element == ElementType.AIR else "jump"
 	elif abs(velocity.x) > 5:
 		new_anim = "walk"
 	else:

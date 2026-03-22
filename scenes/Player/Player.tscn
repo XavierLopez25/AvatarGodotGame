@@ -142,7 +142,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_63i3e"]
 radius = 13.0
-height = 34.0
+height = 28.0
 
 [node name="Player" type="Node2D"]
 
@@ -152,11 +152,12 @@ script = ExtResource("1_5tklm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(0, -17)
+scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_pcdsq")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -17)
+position = Vector2(5, -17)
 shape = SubResource("CapsuleShape2D_63i3e")
 
 [node name="AttackSpawn" type="Marker2D" parent="Player"]
