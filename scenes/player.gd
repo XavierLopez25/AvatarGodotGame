@@ -60,6 +60,10 @@ func handle_abilities() -> void:
 		current_element_node.attack_w()
 	if Input.is_action_just_pressed("ability_x"):
 		current_element_node.attack_x()
+	# Romper rocas:
+	if current_element == ElementType.EARTH:
+		if Input.is_action_just_pressed("ability_z"):
+			get_tree().call_group("rocas", "destroy")
 
 func update_element_reference() -> void:
 	if current_element_node and current_element_node.attack_started.is_connected(_on_attack_locked):

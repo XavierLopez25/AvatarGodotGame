@@ -9,7 +9,7 @@ func attack_q(): # Earthquake (Ataque rápido)
 	print("¡Terremoto!")
 	# Bloqueamos al jugador un momento para la animación de "pisar fuerte"
 	attack_started.emit()
-	player.get_node("AnimatedSprite2D").play("earthquake_spawn") 
+	player.get_node("AnimatedSprite2D").play("attack") 
 	
 	# Esperamos un poquito para que el golpe coincida con la animación
 	await get_tree().create_timer(0.3).timeout
