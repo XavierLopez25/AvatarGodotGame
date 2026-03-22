@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cdgx8vqqktf52"]
+[gd_scene load_steps=10 format=3 uid="uid://cdgx8vqqktf52"]
 
 [ext_resource type="PackedScene" uid="uid://dl8u2x12hhhmy" path="res://scenes/Player/Player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://rass3pbgep5i" path="res://assets/sprites/UI/aire.png" id="2_tefeu"]
@@ -31,33 +31,36 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Main" type="Node2D" unique_id=2112488189]
+[node name="Main" type="Node2D"]
 
-[node name="Floor" type="StaticBody2D" parent="." unique_id=86918206]
+[node name="Floor" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=676673726]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(0, 1943)
 scale = Vector2(1200, 1200)
 shape = SubResource("RectangleShape2D_o5qli")
+debug_color = Color(0.398718, 0.227605, 0.141893, 1)
 
-[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=168033874]
-offset_left = -23961.0
-offset_top = 236.0
-offset_right = 24041.0
-offset_bottom = 4111.0
-color = Color(0.543888, 0.993432, 0.782, 1)
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -23939.0
+offset_top = 2.0
+offset_right = 24063.0
+offset_bottom = 3877.0
+color = Color(0.364706, 0.235294, 0.0941176, 1)
 
-[node name="Player" parent="." unique_id=472363343 instance=ExtResource("1_o5qli")]
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(2, 68)
 
-[node name="Mushroom" parent="." unique_id=577314178 instance=ExtResource("7_mushroom")]
-position = Vector2(203, -7)
+[node name="Mushroom" parent="." instance=ExtResource("7_mushroom")]
+position = Vector2(203, -2)
 
-[node name="CanvasGroup" type="CanvasLayer" parent="." unique_id=1659091246]
+[node name="CanvasGroup" type="CanvasLayer" parent="."]
 scale = Vector2(0.4, 0.4)
 transform = Transform2D(0.4, 0, 0, 0.4, 0, 0)
 
-[node name="Control" type="Control" parent="CanvasGroup" unique_id=781580014]
+[node name="Control" type="Control" parent="CanvasGroup"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,10 +73,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_choun")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasGroup/Control" unique_id=1958856410]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasGroup/Control"]
 root_node = NodePath("../../..")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup/Control" unique_id=1223499879]
-position = Vector2(2580, 229.99997)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup/Control"]
+position = Vector2(2580, 230)
 scale = Vector2(0.976998, 0.989108)
 sprite_frames = SubResource("SpriteFrames_ya4ey")
