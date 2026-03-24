@@ -8,6 +8,7 @@ var current_element_node: Element
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -360.0
+const AIR_JUMP_VELOCITY = -460.0
 
 const DASH_SPEED = 800.0
 const DASH_DURATION = 0.3
@@ -25,6 +26,7 @@ var is_attacking := false
 var is_locked := false
 
 func _ready() -> void:
+	add_to_group("player")
 	anim.play("idle")
 	update_element_reference()
 
@@ -55,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	handle_abilities()
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = AIR_JUMP_VELOCITY if current_element == ElementType.AIR else JUMP_VELOCITY
 			
 	move_and_slide()
 	update_animation()

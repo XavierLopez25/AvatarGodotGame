@@ -42,7 +42,7 @@ animations = [{
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(2, 68)
+position = Vector2(-1344, 71)
 
 [node name="Mushroom" parent="." instance=ExtResource("7_mushroom")]
 position = Vector2(203, -2)

@@ -599,11 +599,12 @@ size = Vector2(30, 40)
 
 [node name="Mushroom" type="CharacterBody2D"]
 script = ExtResource("1")
+sprite_faces_right = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_cysna")
-animation = &"Attack"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
