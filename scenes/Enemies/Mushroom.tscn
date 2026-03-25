@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://c4q2u2f7pnb3b"]
+[gd_scene load_steps=90 format=3 uid="uid://c4q2u2f7pnb3b"]
 
 [ext_resource type="Script" uid="uid://c6sthmpmy40x3" path="res://scenes/Enemies/Mushroom.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://coy7el7koh2oy" path="res://assets/sprites/Mushroom/Mushroom-Idle.png" id="2"]
@@ -594,6 +594,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_attack"]
+size = Vector2(36, 24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(30, 40)
 
@@ -605,6 +608,13 @@ sprite_faces_right = false
 position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_cysna")
 animation = &"Idle"
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+collision_layer = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+shape = SubResource("RectangleShape2D_attack")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)

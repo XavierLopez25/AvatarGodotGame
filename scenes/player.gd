@@ -16,8 +16,10 @@ var is_dashing := false
 var dash_timer := 0.0
 
 
-var health = 100.0
-var max_health = 100.0
+var health = 200.0
+var max_health = 200.0
+var spawn_position: Vector2
+var ui_node: Node
 
 enum ElementType { AIR, WATER, EARTH, FIRE }
 var current_element: ElementType = ElementType.AIR
@@ -27,8 +29,11 @@ var is_locked := false
 
 func _ready() -> void:
 	add_to_group("player")
+	spawn_position = global_position
+	ui_node = get_tree().current_scene.find_child("Control", true, false)
 	anim.play("idle")
 	update_element_reference()
+	_update_ui()
 
 func _physics_process(delta: float) -> void:
 	# Si está bloqueado (por ataque normal), no se mueve
@@ -159,3 +164,30 @@ func update_attack_spawn() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "attack":
 		is_attacking = false
+
+func take_damage(amount: float) -> void:
+	if amount <= 0.0:
+		return
+	health = max(health - amount, 0.0)
+	print("Player damage: ", amount, " | HP: ", health, "/", max_health)
+	_update_ui()
+	if health <= 0.0:
+		_respawn()
+
+func heal(amount: float) -> void:
+	if amount <= 0.0:
+		return
+	health = min(health + amount, max_health)
+	print("Player heal: ", amount, " | HP: ", health, "/", max_health)
+	_update_ui()
+
+func _respawn() -> void:
+	velocity = Vector2.ZERO
+	global_position = spawn_position
+	health = max_health
+	print("Player respawn | HP: ", health, "/", max_health)
+	_update_ui()
+
+func _update_ui() -> void:
+	if ui_node and ui_node.has_method("set_health"):
+		ui_node.set_health(health, max_health)

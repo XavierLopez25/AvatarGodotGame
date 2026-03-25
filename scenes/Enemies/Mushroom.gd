@@ -10,6 +10,9 @@ class_name MushroomEnemy
 @export var front_only: bool = true
 @export var auto_face_player: bool = true
 @export var sprite_faces_right: bool = true
+@export var attack_damage: float = 50.0
+@export var hitbox_offset: Vector2 = Vector2(24, -16)
+@export var hitbox_duration: float = 0.2
 
 const ANIM_IDLE := "Idle"
 const ANIM_RUN := "Run"
@@ -21,6 +24,7 @@ const ANIM_STUN := "Stun"
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collider: CollisionShape2D = $CollisionShape2D
+@onready var hitbox: Area2D = $AttackHitbox
 
 var health: float
 var is_dead := false
@@ -30,6 +34,7 @@ var is_attacking := false
 var attack_streak := 0
 var last_attack_time := -9999.0
 var player: Node2D
+var hitbox_active := false
 
 func _ready() -> void:
 	add_to_group("enemies")
@@ -45,6 +50,9 @@ func _ready() -> void:
 		anim.play(ANIM_IDLE)
 	anim.animation_finished.connect(_on_animation_finished)
 	player = _find_player()
+	if hitbox:
+		hitbox.monitoring = false
+		hitbox.body_entered.connect(_on_hitbox_body_entered)
 
 func _physics_process(_delta: float) -> void:
 	if is_dead or is_stunned:
@@ -59,6 +67,8 @@ func _physics_process(_delta: float) -> void:
 			# If the sprite faces right by default, flip when the player is left.
 			# If it faces left by default, flip when the player is right.
 			anim.flip_h = wants_left if sprite_faces_right else !wants_left
+	if hitbox_active:
+		_update_hitbox_position()
 	if is_attacking and not anim.is_playing():
 		is_attacking = false
 		if anim.sprite_frames.has_animation(ANIM_IDLE):
@@ -142,10 +152,12 @@ func _start_attack(now: float) -> void:
 	if attack_streak >= 2 and anim.sprite_frames.has_animation(ANIM_ATTACK_STUN):
 		attack_streak = 0
 		anim.play(ANIM_ATTACK_STUN)
+		_activate_hitbox()
 		return
 	attack_streak += 1
 	if anim.sprite_frames.has_animation(ANIM_ATTACK):
 		anim.play(ANIM_ATTACK)
+		_activate_hitbox()
 
 func _find_player() -> Node2D:
 	var p := get_tree().get_first_node_in_group("player")
@@ -156,3 +168,41 @@ func _find_player() -> Node2D:
 		if found is Node2D:
 			return found
 	return null
+
+func _activate_hitbox() -> void:
+	if hitbox == null:
+		return
+	hitbox_active = true
+	_update_hitbox_position()
+	hitbox.monitoring = true
+	_apply_hitbox_overlap()
+	call_deferred("_apply_hitbox_overlap")
+	var timer = get_tree().create_timer(hitbox_duration)
+	timer.timeout.connect(_deactivate_hitbox)
+
+func _deactivate_hitbox() -> void:
+	hitbox_active = false
+	if hitbox:
+		hitbox.monitoring = false
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if not hitbox_active:
+		return
+	if body.is_in_group("player") and body.has_method("take_damage"):
+		body.take_damage(attack_damage)
+		_deactivate_hitbox()
+
+func _apply_hitbox_overlap() -> void:
+	if hitbox == null or not hitbox_active:
+		return
+	for body in hitbox.get_overlapping_bodies():
+		if body is Node2D:
+			_on_hitbox_body_entered(body)
+
+func _get_facing_dir() -> int:
+	var base_dir := 1 if sprite_faces_right else -1
+	return (-1 if anim.flip_h else 1) * base_dir
+
+func _update_hitbox_position() -> void:
+	var dir := _get_facing_dir()
+	hitbox.position = Vector2(hitbox_offset.x * dir, hitbox_offset.y)

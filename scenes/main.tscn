@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cdgx8vqqktf52"]
+[gd_scene load_steps=23 format=4 uid="uid://cdgx8vqqktf52"]
 
 [ext_resource type="PackedScene" uid="uid://dl8u2x12hhhmy" path="res://scenes/Player/Player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://rass3pbgep5i" path="res://assets/sprites/UI/aire.png" id="2_tefeu"]
@@ -18,6 +18,23 @@
 [ext_resource type="Texture2D" uid="uid://dnhtnnopop1w8" path="res://assets/sprites/Level1/Grass/8.png" id="16_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://c6oakgr40eyby" path="res://assets/sprites/Level1/Grass/10.png" id="17_y6deb"]
 [ext_resource type="Texture2D" uid="uid://da6g0n7q1q10p" path="res://assets/sprites/Level1/Grass/9.png" id="18_og1vs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_bg"]
+bg_color = Color(0, 0.4, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_fg"]
+bg_color = Color(0, 0.8, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_dp3eg"]
+font_size = 40
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ya4ey"]
 animations = [{
@@ -63,6 +80,30 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_choun")
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasGroup/Control"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 640.0
+offset_bottom = 80.0
+scale = Vector2(1.7, 1.7)
+theme_override_styles/background = SubResource("StyleBoxFlat_health_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_health_fg")
+max_value = 200.0
+value = 200.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="CanvasGroup/Control"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 117.5
+offset_right = 340.0
+offset_bottom = 172.5
+theme_override_font_sizes/font_size = 16
+text = "200 / 200"
+label_settings = SubResource("LabelSettings_dp3eg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasGroup/Control"]
 root_node = NodePath("../../..")
