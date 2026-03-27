@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://beyg8yl8lbbnl"]
+[gd_scene load_steps=15 format=3 uid="uid://beyg8yl8lbbnl"]
 
 [ext_resource type="Texture2D" uid="uid://wsvgrb6c46tc" path="res://assets/sprites/water/ice/I5050-1.png" id="1_nc2vw"]
 [ext_resource type="Script" uid="uid://c2kx1u1jrl55o" path="res://scenes/Abilities/water/ice_ball.gd" id="1_ue345"]
@@ -56,17 +56,16 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_58ypx"]
 
-[node name="IceQ" type="Area2D" unique_id=1222791834]
+[node name="IceQ" type="Area2D"]
 script = ExtResource("1_ue345")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1385004447]
-position = Vector2(24, 58)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7xsmn")
 animation = &"Ice"
 frame = 10
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450266254]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_58ypx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

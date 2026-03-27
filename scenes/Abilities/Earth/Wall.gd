@@ -9,7 +9,7 @@ func _ready() -> void:
 	freeze = true
 	
 	position.x += (spawn_distance * direction)
-	position.y += 15
+	#position.y += 5
 	sprite.flip_h = (direction == -1)
 	
 	sprite.animation_finished.connect(_on_animation_finished)

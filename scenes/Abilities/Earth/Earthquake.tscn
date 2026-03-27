@@ -61,4 +61,6 @@ position = Vector2(-7, -32)
 scale = Vector2(0.618902, 0.600894)
 sprite_frames = SubResource("SpriteFrames_etg6d")
 animation = &"earthquake_spawn"
+frame = 7
+frame_progress = 1.0
 centered = false

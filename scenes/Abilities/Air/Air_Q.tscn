@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://p41buycxo7py"]
+[gd_scene load_steps=20 format=3 uid="uid://p41buycxo7py"]
 
 [ext_resource type="Script" uid="uid://dbtkfqx5yxcr8" path="res://scenes/Abilities/Air/wind.gd" id="1_y7gts"]
 [ext_resource type="Texture2D" uid="uid://1f851m002m6l" path="res://assets/sprites/Air/WindAttack/W401-1.png" id="2_62625"]
@@ -75,14 +75,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cffuq"]
+radius = 182.003
 
-[node name="AirQ" type="Area2D" unique_id=2011264888]
+[node name="AirQ" type="Area2D"]
+scale = Vector2(0.15, 0.15)
 script = ExtResource("1_y7gts")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1910265968]
-position = Vector2(24, 58)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rixgu")
 animation = &"Wind"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1624115851]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cffuq")

@@ -8,7 +8,7 @@ var inherited_velocity: float = 0.0
 
 func _ready() -> void:
 	anim.play("Wind")
-	scale = Vector2(0.25, 0.25)
+	#scale = Vector2(0.25, 0.25)
 	body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
