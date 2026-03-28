@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://dymsv5b01h6uo"]
+
+[ext_resource type="Script" uid="uid://bwj1kyfbn8nlx" path="res://scenes/Abilities/fire/electric_stun.gd" id="1_i8cjh"]
+[ext_resource type="Texture2D" uid="uid://h3j78j4qg22g" path="res://assets/sprites/Fire/Electric.png" id="2_1roqo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uwd1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt6b0"]
+atlas = ExtResource("2_1roqo")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yshf"]
+atlas = ExtResource("2_1roqo")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysgh8"]
+atlas = ExtResource("2_1roqo")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j3wq"]
+atlas = ExtResource("2_1roqo")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pky74"]
+atlas = ExtResource("2_1roqo")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeb3v"]
+atlas = ExtResource("2_1roqo")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaja3"]
+atlas = ExtResource("2_1roqo")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phwmy"]
+atlas = ExtResource("2_1roqo")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idys6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt6b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yshf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysgh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j3wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pky74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeb3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaja3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phwmy")
+}],
+"loop": true,
+"name": &"thunder_attack",
+"speed": 5.0
+}]
+
+[node name="Fire_W" type="Area2D"]
+script = ExtResource("1_i8cjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5.5, 5.5)
+shape = SubResource("CircleShape2D_6uwd1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.58, 0.58)
+sprite_frames = SubResource("SpriteFrames_idys6")
+animation = &"thunder_attack"
+frame_progress = 0.712471
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

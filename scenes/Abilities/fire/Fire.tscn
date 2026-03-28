@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtl7wis37bpy0"]
+[gd_scene load_steps=4 format=3 uid="uid://dtl7wis37bpy0"]
 
 [ext_resource type="Script" uid="uid://b2lmg67xin6ps" path="res://scenes/Abilities/fire_element.gd" id="1_fo3xj"]
 [ext_resource type="PackedScene" uid="uid://ebsqy5r8bfae" path="res://scenes/Abilities/fire/Fire_Q.tscn" id="2_bhcng"]
+[ext_resource type="PackedScene" uid="uid://dymsv5b01h6uo" path="res://scenes/Abilities/fire/Fire_W.tscn" id="3_c72uq"]
 
 [node name="Fire" type="Node2D"]
 script = ExtResource("1_fo3xj")
 fire_ball_scene = ExtResource("2_bhcng")
-lightning_scene = ExtResource("2_bhcng")
+lightning_scene = ExtResource("3_c72uq")
 
 [node name="TimerQ" type="Timer" parent="."]
 one_shot = true

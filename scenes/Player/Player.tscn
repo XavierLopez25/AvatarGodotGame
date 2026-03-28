@@ -146,7 +146,7 @@ height = 28.0
 
 [node name="Player" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(-4, -67)
 script = ExtResource("1_5tklm")
 
