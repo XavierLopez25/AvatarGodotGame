@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnhtnnopop1w8"
-path="res://.godot/imported/8.png-f2c297933f0d9fcf84b4b72254b9e5f8.ctex"
+uid="uid://ddknhcgt8tep7"
+path="res://.godot/imported/Mushroom-Electrificao.png-3a93bd7e911fb8db389ea8150bd16fba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Level1/Grass/8.png"
-dest_files=["res://.godot/imported/8.png-f2c297933f0d9fcf84b4b72254b9e5f8.ctex"]
+source_file="res://assets/sprites/Mushroom/Mushroom-Electrificao.png"
+dest_files=["res://.godot/imported/Mushroom-Electrificao.png-3a93bd7e911fb8db389ea8150bd16fba.ctex"]
 
 [params]
 

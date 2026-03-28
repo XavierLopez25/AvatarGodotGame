@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" format=3 uid="uid://btmlwmbpa2q68"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://btmlwmbpa2q68"]
 
 [ext_resource type="Texture2D" uid="uid://bu5jutm0qcpnh" path="res://assets/tiles/Tileset.png" id="1_ej8vj"]
 
@@ -181,7 +181,9 @@ texture = ExtResource("1_ej8vj")
 7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8, -8, -8)
 7:6/0/physics_layer_0/polygon_0/one_way = true
 8:6/0 = 0
+8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:6/0 = 0
+9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:6/0 = 0
 11:6/0 = 0
 12:6/0 = 0
@@ -203,7 +205,9 @@ texture = ExtResource("1_ej8vj")
 6:7/0 = 0
 7:7/0 = 0
 8:7/0 = 0
+8:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:7/0 = 0
+9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:7/0 = 0
 11:7/0 = 0
 12:7/0 = 0
@@ -221,7 +225,9 @@ texture = ExtResource("1_ej8vj")
 6:8/0 = 0
 7:8/0 = 0
 8:8/0 = 0
+8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:8/0 = 0
+9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:8/0 = 0
 11:8/0 = 0
 13:8/0 = 0
@@ -242,7 +248,9 @@ texture = ExtResource("1_ej8vj")
 6:9/0 = 0
 7:9/0 = 0
 8:9/0 = 0
+8:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:9/0 = 0
+9:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:9/0 = 0
 11:9/0 = 0
 12:9/0 = 0
@@ -262,7 +270,9 @@ texture = ExtResource("1_ej8vj")
 6:10/0 = 0
 7:10/0 = 0
 8:10/0 = 0
+8:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:10/0 = 0
+9:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:10/0 = 0
 11:10/0 = 0
 12:10/0 = 0
@@ -285,7 +295,9 @@ texture = ExtResource("1_ej8vj")
 6:11/0 = 0
 7:11/0 = 0
 8:11/0 = 0
+8:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:11/0 = 0
+9:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:11/0 = 0
 11:11/0 = 0
 12:11/0 = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://c4q2u2f7pnb3b"]
+[gd_scene load_steps=101 format=3 uid="uid://c4q2u2f7pnb3b"]
 
 [ext_resource type="Script" uid="uid://c6sthmpmy40x3" path="res://scenes/Enemies/Mushroom.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://coy7el7koh2oy" path="res://assets/sprites/Mushroom/Mushroom-Idle.png" id="2"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dnnu6pf55qxud" path="res://assets/sprites/Mushroom/Mushroom-Hit.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://b2mu86v0vb6dj" path="res://assets/sprites/Mushroom/Mushroom-Die.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dqlxl8c31otio" path="res://assets/sprites/Mushroom/Mushroom-Stun.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://ci6o7qi2qwhqy" path="res://assets/sprites/Mushroom/Mushroom-Congelao.png" id="8_rqm2t"]
+[ext_resource type="Texture2D" uid="uid://ddknhcgt8tep7" path="res://assets/sprites/Mushroom/Mushroom-Electrificao.png" id="8_uo1l3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqm2t"]
 atlas = ExtResource("4")
@@ -324,6 +326,42 @@ region = Rect2(1280, 0, 80, 64)
 atlas = ExtResource("8")
 region = Rect2(1360, 0, 80, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahosk"]
+atlas = ExtResource("8_uo1l3")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmv2m"]
+atlas = ExtResource("8_uo1l3")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypa1j"]
+atlas = ExtResource("8_uo1l3")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge0vc"]
+atlas = ExtResource("8_uo1l3")
+region = Rect2(0, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr4ue"]
+atlas = ExtResource("8_uo1l3")
+region = Rect2(80, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shaba"]
+atlas = ExtResource("8_uo1l3")
+region = Rect2(160, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_telx1"]
+atlas = ExtResource("8_uo1l3")
+region = Rect2(0, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwskm"]
+atlas = ExtResource("8_uo1l3")
+region = Rect2(80, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqebn"]
+atlas = ExtResource("8_rqm2t")
+region = Rect2(0, 0, 80, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cysna"]
 animations = [{
 "frames": [{
@@ -592,6 +630,43 @@ animations = [{
 "loop": false,
 "name": &"Stun",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahosk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmv2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypa1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge0vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr4ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shaba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_telx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwskm")
+}],
+"loop": true,
+"name": &"StunElectric",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqebn")
+}],
+"loop": true,
+"name": &"StunIce",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_attack"]
@@ -607,7 +682,7 @@ sprite_faces_right = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_cysna")
-animation = &"Idle"
+animation = &"StunElectric"
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 collision_layer = 2

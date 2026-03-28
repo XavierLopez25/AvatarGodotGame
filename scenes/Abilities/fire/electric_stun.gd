@@ -1,8 +1,7 @@
 extends Area2D
 
 @export var speed = 300.0
-@export var damage = 10.0
-@export var burn_damage = 1.0
+@export var damage = 5.0
 @export var burn_duration = 3.0
 var direction = 1
 var inherited_velocity: float = 0.0

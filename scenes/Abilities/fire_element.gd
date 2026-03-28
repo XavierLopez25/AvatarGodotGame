@@ -18,6 +18,9 @@ func attack_q():
 func attack_w():
 	if not timer_w.is_stopped(): return
 	
+	player.get_node("AnimatedSprite2D").play("attack")
+	player.is_attacking = true
+	
 	print("Rayo aturdidor!")
 	spawn_projectile(lightning_scene)
 	timer_w.start(2.0)

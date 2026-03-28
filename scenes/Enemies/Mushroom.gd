@@ -78,21 +78,23 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if is_burning:
-		burn_timer -= delta
-		burn_tick_timer -= delta
-		
-		if burn_tick_timer <= 0:
-
-			health -= burn_damage_per_tick
-			print("Daño por quemadura: ", burn_damage_per_tick, " Vida: ", health)
-			burn_tick_timer = 1.0
+			burn_timer -= delta
+			burn_tick_timer -= delta
 			
-			if health <= 0:
-				_die()
-				return
+			if burn_tick_timer <= 0:
+				health -= burn_damage_per_tick
+				burn_tick_timer = 1.0 # Reset del segundero
 				
-		if burn_timer <= 0:
-			is_burning = false
+
+				if not is_stunned and anim.sprite_frames.has_animation(ANIM_HURT):
+					anim.play(ANIM_HURT)
+				
+				if health <= 0:
+					_die()
+					return
+					
+			if burn_timer <= 0:
+				is_burning = false
 
 	if is_stunned:
 		stun_time_left -= delta
