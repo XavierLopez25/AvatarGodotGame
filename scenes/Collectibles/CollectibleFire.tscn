@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cl7pti3cy02bp"]
+
+[ext_resource type="Script" uid="uid://b7j3chpe60vyn" path="res://scenes/Collectibles/collectible_element.gd" id="1_6p7i2"]
+[ext_resource type="Texture2D" uid="uid://f0wjatt6by1s" path="res://assets/sprites/UI/fuego_item.png" id="2_i2or3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgfxk"]
+
+[node name="CollectibleFire" type="Area2D" unique_id=969962342]
+script = ExtResource("1_6p7i2")
+element_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=984293001]
+shape = SubResource("CircleShape2D_tgfxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1400233509]
+scale = Vector2(0.054921675, 0.054433793)
+texture = ExtResource("2_i2or3")

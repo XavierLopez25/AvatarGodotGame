@@ -13,10 +13,10 @@ func attack_w():
 	if not timer_w.is_stopped(): return 
 	
 	if player.has_method("heal"):
-		player.heal(100)
+		player.heal(50)
 	else:
 		var max_health = player.max_health
-		player.health = min(player.health + 100, max_health)
+		player.health = min(player.health + 50, max_health)
 	print("Se ha curado! Vida: ", player.health)
 	
 	if heal_effect_scene:

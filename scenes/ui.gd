@@ -40,3 +40,27 @@ func set_health(current: float, max_health: float) -> void:
 		health_bar.value = clamp(current, 0.0, max_health)
 	if health_label:
 		health_label.text = str(int(clamp(current, 0.0, max_health))) + " / " + str(int(max_health))
+
+func show_locked_message() -> void:
+	_show_message("¡Elemento bloqueado!")
+
+func show_unlock_message(element_name: String) -> void:
+	_show_message("¡" + element_name + " desbloqueado!")
+
+func _show_message(text: String) -> void:
+	var msg_label: Label = get_node_or_null("MessageLabel")
+	if not msg_label:
+		msg_label = Label.new()
+		msg_label.name = "MessageLabel"
+		msg_label.add_theme_font_size_override("font_size", 20)
+		msg_label.position = Vector2(1200, 700)
+		add_child(msg_label)
+
+	msg_label.text = text
+	msg_label.visible = true
+	msg_label.modulate = Color(1, 1, 1, 1)
+
+	var tween = create_tween()
+	tween.tween_interval(1.5)
+	tween.tween_property(msg_label, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(func(): msg_label.visible = false)

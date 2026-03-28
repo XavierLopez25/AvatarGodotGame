@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b7xtxbi5m6up7"]
+
+[ext_resource type="Script" uid="uid://b7j3chpe60vyn" path="res://scenes/Collectibles/collectible_element.gd" id="1_m44xx"]
+[ext_resource type="Texture2D" uid="uid://cuppckxiqui4t" path="res://assets/sprites/UI/agua_item.png" id="2_mpnog"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k8jip"]
+
+[node name="CollectibleWater" type="Area2D" unique_id=1029262845]
+script = ExtResource("1_m44xx")
+element_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616562190]
+scale = Vector2(0.054649778, 0.05277285)
+texture = ExtResource("2_mpnog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62780484]
+shape = SubResource("CircleShape2D_k8jip")

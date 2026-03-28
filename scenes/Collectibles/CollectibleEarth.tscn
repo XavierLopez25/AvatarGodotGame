@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c1sd6nwea0sti"]
+
+[ext_resource type="Script" uid="uid://b7j3chpe60vyn" path="res://scenes/Collectibles/collectible_element.gd" id="1_8hs05"]
+[ext_resource type="Texture2D" uid="uid://ckdlpqvhff0no" path="res://assets/sprites/UI/tierra_item.png" id="2_dirk6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x26ek"]
+
+[node name="CollectibleEarth" type="Area2D" unique_id=1706838872]
+script = ExtResource("1_8hs05")
+element_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1051384256]
+shape = SubResource("CircleShape2D_x26ek")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=933973944]
+scale = Vector2(0.05556917, 0.055019975)
+texture = ExtResource("2_dirk6")

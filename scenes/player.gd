@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var manager: Node2D = $ElementManager
 
 var current_element_node: Element 
+var unlocked_elements: Array[bool] = [false, false, false, false]
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -360.0
@@ -32,7 +33,7 @@ func _ready() -> void:
 	spawn_position = global_position
 	ui_node = get_tree().current_scene.find_child("Control", true, false)
 	anim.play("idle")
-	update_element_reference()
+	# update_element_reference()
 	_update_ui()
 
 func _physics_process(delta: float) -> void:
@@ -88,8 +89,14 @@ func handle_movement() -> void:
 		
 func handle_abilities() -> void:
 	if is_attacking or is_locked or is_dashing: return
+	if not current_element_node: return
 	
-	if not current_element_node:
+	if not unlocked_elements[current_element]:
+		if Input.is_action_just_pressed("attack") or \
+			Input.is_action_just_pressed("ability_w") or \
+			Input.is_action_just_pressed("ability_x"):
+			if ui_node and ui_node.has_method("show_locked_message"):
+				ui_node.show_locked_message()
 		return
 		
 	if Input.is_action_just_pressed("attack"):
@@ -98,15 +105,16 @@ func handle_abilities() -> void:
 		current_element_node.attack_w()
 	if Input.is_action_just_pressed("ability_x"):
 		current_element_node.attack_x()
-	
+		
 	if current_element == ElementType.EARTH:
 		if Input.is_action_just_pressed("ability_z"):
 			get_tree().call_group("rocas", "destroy")
 
 func update_element_reference() -> void:
-	if current_element_node and current_element_node.attack_started.is_connected(_on_attack_locked):
-		current_element_node.attack_started.disconnect(_on_attack_locked)
-		current_element_node.attack_finished.disconnect(_on_attack_unlocked)
+	if current_element_node:
+		if current_element_node.attack_started.is_connected(_on_attack_locked):
+			current_element_node.attack_started.disconnect(_on_attack_locked)
+			current_element_node.attack_finished.disconnect(_on_attack_unlocked)
 
 	match current_element:
 		ElementType.AIR:
@@ -117,22 +125,25 @@ func update_element_reference() -> void:
 			current_element_node = $ElementManager/Earth
 		ElementType.FIRE:
 			current_element_node = $ElementManager/Fire
-		
-		
-		
-
+			
 	if current_element_node:
 		current_element_node.attack_started.connect(_on_attack_locked)
 		current_element_node.attack_finished.connect(_on_attack_unlocked)
 		print("Cambiado a elemento: ", ElementType.keys()[current_element])
 
 func cycle_element() -> void:
-	current_element = ((current_element + 1) % 4) as ElementType
-	update_element_reference()
-	var ui_node = get_tree().current_scene.find_child("Control", true, false)
+	var start = current_element
+	var next = (current_element + 1) % 4
 	
-	if ui_node:
-		ui_node.actualizar_icono(current_element)
+	# Busca el siguiente elemento desbloqueado
+	while next != start:
+		if unlocked_elements[next]:
+			current_element = next as ElementType
+			update_element_reference()
+			if ui_node:
+				ui_node.actualizar_icono(current_element)
+			return
+		next = (next + 1) % 4
 
 func _on_attack_locked():
 	is_locked = true
@@ -191,3 +202,12 @@ func _respawn() -> void:
 func _update_ui() -> void:
 	if ui_node and ui_node.has_method("set_health"):
 		ui_node.set_health(health, max_health)
+		
+func unlock_element(element_index: int) -> void:
+	unlocked_elements[element_index] = true
+	current_element = element_index as ElementType
+	update_element_reference()
+	print("Elemento desbloqueado: ", ElementType.keys()[element_index])
+	if ui_node:
+		ui_node.actualizar_icono(current_element)
+		ui_node.show_unlock_message(ElementType.keys()[element_index])
