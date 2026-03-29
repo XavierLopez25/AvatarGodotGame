@@ -21,6 +21,7 @@ var health = 200.0
 var max_health = 200.0
 var spawn_position: Vector2
 var ui_node: Node
+var avatar_message_shown := false
 
 enum ElementType { AIR, WATER, EARTH, FIRE }
 var current_element: ElementType = ElementType.AIR
@@ -211,3 +212,12 @@ func unlock_element(element_index: int) -> void:
 	if ui_node:
 		ui_node.actualizar_icono(current_element)
 		ui_node.show_unlock_message(ElementType.keys()[element_index])
+		if not avatar_message_shown and _has_all_elements() and ui_node.has_method("show_avatar_mastered_message"):
+			avatar_message_shown = true
+			ui_node.show_avatar_mastered_message()
+
+func _has_all_elements() -> bool:
+	for unlocked in unlocked_elements:
+		if not unlocked:
+			return false
+	return true

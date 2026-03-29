@@ -1,10 +1,12 @@
-extends Control
+﻿extends Control
 
 # Referencia al hijo para cambiarle el frame
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var health_label: Label = $HealthLabel
 @onready var z_label = $TextureRect6
+@onready var avatar_message: Control = $AvatarMessage
+@onready var avatar_message_label: Label = $AvatarMessage/Label
 
 @onready var indicadores_elemento = [
 	$TextureRect,  
@@ -42,10 +44,21 @@ func set_health(current: float, max_health: float) -> void:
 		health_label.text = str(int(clamp(current, 0.0, max_health))) + " / " + str(int(max_health))
 
 func show_locked_message() -> void:
-	_show_message("¡Elemento bloqueado!")
+	_show_message("Â¡Elemento bloqueado!")
 
 func show_unlock_message(element_name: String) -> void:
-	_show_message("¡" + element_name + " desbloqueado!")
+	_show_message("Â¡" + element_name + " desbloqueado!")
+
+func show_avatar_mastered_message() -> void:
+	if not avatar_message:
+		return
+	if avatar_message_label:
+		avatar_message_label.text = "Ahora que masterizado los 4 elementos, eres un Avatar."
+	avatar_message.visible = true
+	avatar_message.modulate = Color(1, 1, 1, 1)
+	var tween = create_tween()
+	tween.tween_interval(10.0)
+	tween.tween_callback(func(): get_tree().reload_current_scene())
 
 func _show_message(text: String) -> void:
 	var msg_label: Label = get_node_or_null("MessageLabel")
